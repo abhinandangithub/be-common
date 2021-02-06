@@ -1,5 +1,5 @@
 {
-  "name": "@sgtickets/common",
+  "name": "@abhiorg/common",
   "version": "1.0.11",
   "description": "",
   "main": "./build/index.js",
