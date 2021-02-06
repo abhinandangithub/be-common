@@ -9,7 +9,7 @@ interface UserPayload {
 declare global {
   namespace Express {
     interface Request {
-      currentUser?: UserPayload;
+      currentUser?: UserPayload
     }
   }
 }
@@ -19,13 +19,13 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  if (!req.header.token) {
+  if (!req.headers.token) {
     return next();
   }
 
   try {
     const payload = jwt.verify(
-      req.header.token,
+      req.headers.token as string,
       process.env.JWT_KEY!
     ) as UserPayload;
     req.currentUser = payload;
